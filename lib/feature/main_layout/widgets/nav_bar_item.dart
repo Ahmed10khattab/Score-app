@@ -23,7 +23,7 @@ class NavBarItem extends StatelessWidget {
             child: cubit.index == index
                 ? CircleAvatar(
                     backgroundColor: AppColors.green1,
-                    radius: 25.w,
+                    radius: 27.w,
                     child: SvgPicture.asset(
                       assets,
                       color: AppColors.white,
