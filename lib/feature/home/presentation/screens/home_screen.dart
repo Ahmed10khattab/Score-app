@@ -90,7 +90,7 @@ class HomeScreen extends StatelessWidget {
           ),
           CustomButton(text: AppStrings.continueChallenge, onPressed: () {},color: AppColors.yellow1,),
           SizedBox(
-            height: 15.h,
+            height: 10.h,
           ),
           const CutomTextHeader(
             text: AppStrings.latestBadgets,
@@ -98,7 +98,7 @@ class HomeScreen extends StatelessWidget {
           ),
           const LatestBudges(),
           SizedBox(
-            height: 5.h,
+            height: 2.h,
           ),
           const CutomTextHeader(
             text: AppStrings.popularChalenges,

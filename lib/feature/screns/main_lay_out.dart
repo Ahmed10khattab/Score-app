@@ -30,7 +30,7 @@ class MainLayOutScreen extends StatelessWidget {
             children: [
               screens[cubit.index],
               Positioned(
-                  bottom: 10.h,
+                  bottom:1.h,
                   left: 10.w,
                   right: 10.w,
                   child: const CutomNavBar())
