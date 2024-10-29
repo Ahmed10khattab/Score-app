@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:score_app/core/themes/assets.dart';
+ import 'package:flutter_screenutil/flutter_screenutil.dart';
+ import 'package:score_app/core/themes/assets.dart';
 import 'package:score_app/core/themes/colors.dart';
-import 'package:score_app/feature/main_layout/cubit/main_lay_out_cubit.dart';
+ import 'package:score_app/feature/main_layout/widgets/nav_bar_item.dart';
 
 class CutomNavBar extends StatelessWidget {
   const CutomNavBar({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<MainLayOutCubit, MainLayOutState>(
-      builder: (context, state) {
-        var cubit = MainLayOutCubit.get(context);
-        return Padding(
+    return  
+        
+          Padding(
           padding: const EdgeInsets.only(bottom: 15, right: 15, left: 15),
           child: Stack(
             children: [
@@ -49,109 +46,18 @@ class CutomNavBar extends StatelessWidget {
                   ),
                 ),
               ),
-              Row(
+              const Row(
                 children: [
-                  Expanded(
-                    child: GestureDetector(
-                      onTap: () {
-                        cubit.changeMainLayOutScreens(0);
-                      },
-                      child: cubit.index == 0
-                          ? CircleAvatar(
-                              backgroundColor: AppColors.green1,
-                              radius: 25.w,
-                              child: SvgPicture.asset(Assets.home),
-                            )
-                          : Padding(
-                              padding: EdgeInsets.only(top: 10.h),
-                              child: SvgPicture.asset(Assets.home,
-                                  height: 13.h,
-                                  width: 13.w,
-                                  color:
-                                      const Color.fromARGB(255, 214, 214, 214)),
-                            ),
-                    ),
-                  ),
-                  Expanded(
-                    child: GestureDetector(
-                      onTap: () {
-                        cubit.changeMainLayOutScreens(1);
-                      },
-                      child: cubit.index == 1
-                          ? CircleAvatar(
-                              backgroundColor:
-                                  cubit.index == 1 ? AppColors.green1 : null,
-                              radius: 25.w,
-                              child: SvgPicture.asset(
-                                Assets.tennis,
-                                color: AppColors.white,
-                              ),
-                            )
-                          : Padding(
-                              padding: EdgeInsets.only(top: 10.h),
-                              child: SvgPicture.asset(
-                                Assets.tennis,
-                                height: 13.h,
-                                width: 13.w,
-                              ),
-                            ),
-                    ),
-                  ),
-                  Expanded(
-                    child: GestureDetector(
-                      onTap: () {
-                        cubit.changeMainLayOutScreens(2);
-                      },
-                      child: cubit.index == 2
-                          ? CircleAvatar(
-                              backgroundColor:
-                                  cubit.index == 2 ? AppColors.green1 : null,
-                              radius: 25.w,
-                              child: SvgPicture.asset(
-                                Assets.badge,
-                                color: AppColors.white,
-                              ),
-                            )
-                          : Padding(
-                              padding: EdgeInsets.only(top: 10.h),
-                              child: SvgPicture.asset(
-                                Assets.badge,
-                                height: 13.h,
-                                width: 13.w,
-                              ),
-                            ),
-                    ),
-                  ),
-                  Expanded(
-                    child: GestureDetector(
-                      onTap: () {
-                        cubit.changeMainLayOutScreens(3);
-                      },
-                      child: cubit.index == 3
-                          ? CircleAvatar(
-                              backgroundColor: AppColors.green1,
-                              radius: 25.w,
-                              child: SvgPicture.asset(
-                                Assets.tennis,
-                                color: AppColors.white,
-                              ),
-                            )
-                          : Padding(
-                              padding: EdgeInsets.only(top: 10.h),
-                              child: SvgPicture.asset(
-                                Assets.tennis,
-                                height: 13.h,
-                                width: 13.w,
-                              ),
-                            ),
-                    ),
-                  )
+                  NavBarItem(index: 0, assets: Assets.home),
+                  NavBarItem(index: 1, assets: Assets.tennis),
+                  NavBarItem(index: 2, assets: Assets.badge),
+                  NavBarItem(index: 3, assets: Assets.tennis)
                 ],
               )
             ],
           ),
         );
-      },
-    );
+       
+     
   }
 }
